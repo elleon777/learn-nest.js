@@ -1,0 +1,3 @@
+interface ITokenPayload {
+  userId: number;
+}
