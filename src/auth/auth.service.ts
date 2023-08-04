@@ -10,6 +10,8 @@ import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
 
+// TODO нужно запретить авторизацию если пользователь уже авторизаон?
+
 @Injectable()
 export class AuthService {
   constructor(

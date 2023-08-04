@@ -1,6 +1,7 @@
 import { JwtAuthGuard } from './auth/guards/jwt.guard';
 import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
+import { User } from './decorators/user.decorator';
 
 @Controller()
 export class AppController {
@@ -12,8 +13,8 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('profile')
-  getProfile(@Request() req) {
-    return req.user;
+  @Get('/profile')
+  getProfile(@User('id') userId: number) {
+    return this.appService.getProfile(userId);
   }
 }

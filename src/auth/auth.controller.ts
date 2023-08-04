@@ -42,7 +42,7 @@ export class AuthController {
     return this.authService.register(dto);
   }
 
-  @Get('logout')
+  @Post('logout')
   async logout(@Res() response: Response) {
     response.cookie('access_token', '', { expires: new Date() });
     return response.sendStatus(200);
